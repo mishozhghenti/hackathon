@@ -14,13 +14,23 @@
         android:layout_height="wrap_content"
         android:textSize="36dp"/>
 
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="LOCATION"
-        android:id="@+id/button"
-        android:layout_centerVertical="true"
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:scaleType="fitXY"
+        android:layout_width="442px"
+        android:layout_height="88px"
+        android:onClick="onClick"
+        android:src="@drawable/locationbar"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true" />
+    <ImageView
+        android:layout_width="266.019px"
+        android:layout_height="357.943px"
+        android:scaleType="fitXY"
+        android:src="@drawable/locattiooonbotton"
+        android:id="@+id/imageView"
+        android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
-        android:onClick="onClick"/>
+        android:layout_marginTop="65dp" />
+
 </RelativeLayout>
