@@ -5,13 +5,13 @@ package com.example.m1sho.hackath.models;
  */
 public class Models {
     private String name,description,image;
-    private int rating;
 
-    public Models(String name, String description, String image, int rating) {
+
+    public Models(String name, String description, String image) {
         this.name = name;
         this.description = description;
         this.image = image;
-        this.rating = rating;
+
     }
 
     public String getName() {
@@ -38,11 +38,5 @@ public class Models {
         this.image = image;
     }
 
-    public int getRating() {
-        return rating;
-    }
 
-    public void setRating(int rating) {
-        this.rating = rating;
-    }
 }
