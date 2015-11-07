@@ -1,8 +1,11 @@
 package com.example.m1sho.hackath;
 
+import android.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +24,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
+    private JsonObjectRequest jsonObjectRequest;
+    private RequestQueue requestQueue;
     private ArrayList<String> states;
     private String region = "";
 
@@ -28,9 +33,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        fillRegions();
-        HashMap<String,ArrayList<Models>> hashFoods= new HashMap<>();
 
+        fillRegions();
+        HashMap<String, ArrayList<Models>> hashFoods = new HashMap<>();
 
     }
 
@@ -53,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         TextView text = (TextView) findViewById(R.id.textView);
         if (mGPS.canGetLocation) {
             mGPS.getLocation();
-            text.setText("Lat : " + mGPS.getLatitude() + "Lon : " + mGPS.getLongitude());
+            // text.setText("Lat : " + mGPS.getLatitude() + "Lon : " + mGPS.getLongitude());
             String url = getLocationURL(mGPS.latitude, mGPS.getLongitude());
             getState(url);
         } else {
@@ -67,9 +72,6 @@ public class MainActivity extends AppCompatActivity {
                 latitude + "," + longtitude + "&sensor=true";
         return url;
     }
-
-    private JsonObjectRequest jsonObjectRequest;
-    private RequestQueue requestQueue;
 
     private void getState(String url) {
         if (requestQueue == null) {
@@ -88,14 +90,18 @@ public class MainActivity extends AppCompatActivity {
                             String longName = addJSONObject.getString("long_name");
                             if (states.contains(longName)) {
                                 region = longName;
-                                int duration = Toast.LENGTH_LONG;
-                                Toast toast = Toast.makeText(getApplicationContext(), region, duration);
+                                int duration = Toast.LENGTH_SHORT;
+                                Toast toast = Toast.makeText(getApplicationContext(), "                " +
+                                        "Your Location : \n" + "\n" + region, duration);
+                                ViewGroup group = (ViewGroup) toast.getView();
+                                TextView message = (TextView) group.getChildAt(0);
+                                message.setTextSize(36);
+                                toast.setGravity(Gravity.CENTER | Gravity.CENTER, 0, 150);
                                 toast.show();
                                 break;
                             }
                         }
                     }
-
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
