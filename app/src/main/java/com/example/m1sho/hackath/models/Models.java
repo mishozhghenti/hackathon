@@ -1,4 +1,4 @@
-package com.example.m1sho.hackath;
+package com.example.m1sho.hackath.models;
 
 /**
  * Created by m1sho on 11/8/2015.
