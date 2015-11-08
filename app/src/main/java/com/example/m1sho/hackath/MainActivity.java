@@ -1,5 +1,6 @@
 package com.example.m1sho.hackath;
 
+import android.graphics.AvoidXfermode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -38,6 +39,10 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<String> states;
     private String region = "";
 
+    private HashMap<String, ArrayList<Models>> hashFoods;
+    private ArrayList<Models> listViewData;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,117 +51,142 @@ public class MainActivity extends AppCompatActivity {
         fillRegions();
 
 
-
-        HashMap<String, ArrayList<Models>> hashFoods = new HashMap<>();
-        getSamegrelo(hashFoods);
-        getGuria(hashFoods);
-        getRachaLech(hashFoods);
-        getImereti(hashFoods);
-        getMtskheta(hashFoods);
-        getAdjara(hashFoods);
-        getKakheti(hashFoods);
-        getShidaqartli(hashFoods);
-        getQvemoqartli(hashFoods);
-        getSamtskheJavaxeti(hashFoods);
-
-
         // when we already know the region
 
     }
 
-    private void getSamegrelo( HashMap<String, ArrayList<Models>> hashFoods){
-        ArrayList<Models> foodList=new ArrayList<>();
+
+    private void afterClickOnLocation() {
+        hashFoods = new HashMap<>();
+
+        switch (region) {
+            case "Samegrelo-Upper Svaneti":
+                getSamegrelo();
+                break;
+            case "Guria":
+                getGuria();
+                break;
+            case "Adjara":
+                getAdjara();
+                break;
+            case "Imereti":
+                getImereti();
+                break;
+            case "Samtskhe-Javakheti":
+                getSamtskheJavaxeti();
+                break;
+            case "Kvemo Kartli":
+                getQvemoqartli();
+                break;
+            case "Mtskheta-Mtianeti":
+                getMtskheta();
+                break;
+            case "Shida Kartli":
+                getShidaqartli();
+                break;
+            case "Racha-Lechkhumi and Lower Svaneti":
+                getRachaLech();
+                break;
+            case "Kakheti":
+                getKakheti();
+                break;
+        }
+        listViewData = hashFoods.get(region);
+    }
+
+    private void getSamegrelo() {
+        ArrayList<Models> foodList = new ArrayList<>();
         for (int i = 0; i < Samegrelo.name.length; i++) {
-            Models newFood=new Models(Samegrelo.name[i],Samegrelo.details[i],Samegrelo.image[i]);
+            Models newFood = new Models(Samegrelo.name[i], Samegrelo.details[i], Samegrelo.image[i]);
             foodList.add(newFood);
         }
         hashFoods.put("Samegrelo-Upper Svaneti", foodList);
     }
 
-    private void getGuria(HashMap<String, ArrayList<Models>> hashFoods){
-        ArrayList<Models> foodList=new ArrayList<>();
+    private void getGuria() {
+        ArrayList<Models> foodList = new ArrayList<>();
         for (int i = 0; i < Guria.name.length; i++) {
-            Models newFood=new Models(Guria.name[i],Guria.details[i],Guria.image[i]);
+            Models newFood = new Models(Guria.name[i], Guria.details[i], Guria.image[i]);
             foodList.add(newFood);
         }
         hashFoods.put("Guria", foodList);
     }
 
-    private void getRachaLech(HashMap<String, ArrayList<Models>> hashFoods){
-        ArrayList<Models> foodList=new ArrayList<>();
+    private void getRachaLech() {
+        ArrayList<Models> foodList = new ArrayList<>();
         for (int i = 0; i < Racha.name.length; i++) {
-            Models newFood=new Models(Racha.name[i],Racha.details[i],Racha.image[i]);
+            Models newFood = new Models(Racha.name[i], Racha.details[i], Racha.image[i]);
             foodList.add(newFood);
         }
         hashFoods.put("Racha-Lechkhumi and Lower Svaneti", foodList);
     }
 
-    private void getImereti(HashMap<String, ArrayList<Models>> hashFoods){
-        ArrayList<Models> foodList=new ArrayList<>();
+    private void getImereti() {
+        ArrayList<Models> foodList = new ArrayList<>();
         for (int i = 0; i < Imereti.name.length; i++) {
-            Models newFood=new Models(Imereti.name[i],Imereti.details[i],Imereti.image[i]);
+            Models newFood = new Models(Imereti.name[i], Imereti.details[i], Imereti.image[i]);
             foodList.add(newFood);
         }
         hashFoods.put("Imereti", foodList);
     }
 
 
-    private void getMtskheta(HashMap<String, ArrayList<Models>> hashFoods) {
-        ArrayList<Models> foodList=new ArrayList<>();
+    private void getMtskheta() {
+        ArrayList<Models> foodList = new ArrayList<>();
         for (int i = 0; i < Mcxetamtianeti.name.length; i++) {
-            Models newFood=new Models(Mcxetamtianeti.name[i],Mcxetamtianeti.details[i],Mcxetamtianeti.image[i]);
+            Models newFood = new Models(Mcxetamtianeti.name[i], Mcxetamtianeti.details[i], Mcxetamtianeti.image[i]);
             foodList.add(newFood);
         }
         hashFoods.put("Mtskheta-Mtianeti", foodList);
     }
 
-    private void getAdjara(HashMap<String, ArrayList<Models>> hashFoods) {
-        ArrayList<Models> foodList=new ArrayList<>();
+    private void getAdjara() {
+        ArrayList<Models> foodList = new ArrayList<>();
         for (int i = 0; i < Adjara.name.length; i++) {
-            Models newFood=new Models(Adjara.name[i],Adjara.details[i],Adjara.image[i]);
+            Models newFood = new Models(Adjara.name[i], Adjara.details[i], Adjara.image[i]);
             foodList.add(newFood);
         }
         hashFoods.put("Adjara", foodList);
     }
 
-    private void getKakheti(HashMap<String, ArrayList<Models>> hashFoods) {
-        ArrayList<Models> foodList=new ArrayList<>();
+    private void getKakheti() {
+        ArrayList<Models> foodList = new ArrayList<>();
         for (int i = 0; i < Kaxeti.name.length; i++) {
-            Models newFood=new Models(Kaxeti.name[i],Kaxeti.details[i],Kaxeti.image[i]);
+            Models newFood = new Models(Kaxeti.name[i], Kaxeti.details[i], Kaxeti.image[i]);
             foodList.add(newFood);
         }
         hashFoods.put("Kakheti", foodList);
     }
 
-    private void getShidaqartli(HashMap<String, ArrayList<Models>> hashFoods){
-        ArrayList<Models> foodList=new ArrayList<>();
+    private void getShidaqartli() {
+        ArrayList<Models> foodList = new ArrayList<>();
         for (int i = 0; i < Shidaqartli.name.length; i++) {
-            Models newFood=new Models(Shidaqartli.name[i],Shidaqartli.details[i],Shidaqartli.image[i]);
+            Models newFood = new Models(Shidaqartli.name[i], Shidaqartli.details[i], Shidaqartli.image[i]);
             foodList.add(newFood);
         }
         hashFoods.put("Shida Kartli", foodList);
     }
 
-    private void getQvemoqartli(HashMap<String, ArrayList<Models>> hashFoods) {
-        ArrayList<Models> foodList=new ArrayList<>();
+    private void getQvemoqartli() {
+        ArrayList<Models> foodList = new ArrayList<>();
         for (int i = 0; i < Qvemoqartli.name.length; i++) {
-            Models newFood=new Models(Qvemoqartli.name[i],Qvemoqartli.details[i],Qvemoqartli.image[i]);
+            Models newFood = new Models(Qvemoqartli.name[i], Qvemoqartli.details[i], Qvemoqartli.image[i]);
             foodList.add(newFood);
         }
         hashFoods.put("Kvemo Kartli", foodList);
     }
 
-    private void getSamtskheJavaxeti(HashMap<String, ArrayList<Models>> hashFoods){
-        ArrayList<Models> foodList=new ArrayList<>();
+    private void getSamtskheJavaxeti() {
+        ArrayList<Models> foodList = new ArrayList<>();
         for (int i = 0; i < SamtskheJavaxeti.name.length; i++) {
-            Models newFood=new Models(SamtskheJavaxeti.name[i],SamtskheJavaxeti.details[i],SamtskheJavaxeti.image[i]);
+            Models newFood = new Models(SamtskheJavaxeti.name[i], SamtskheJavaxeti.details[i], SamtskheJavaxeti.image[i]);
             foodList.add(newFood);
         }
         hashFoods.put("Samtskhe-Javakheti", foodList);
     }
 
 
-        private void fillRegions() {
+    private void fillRegions() {
         states = new ArrayList<>();
         states.add("Samegrelo-Upper Svaneti");
         states.add("Guria");
@@ -208,13 +238,15 @@ public class MainActivity extends AppCompatActivity {
                             if (states.contains(longName)) {
                                 region = longName;
                                 int duration = Toast.LENGTH_SHORT;
-                                Toast toast = Toast.makeText(getApplicationContext(), "                " +
+                                Toast toast = Toast.makeText(getApplicationContext(),
                                         "Your Location : \n" + "\n" + region, duration);
                                 ViewGroup group = (ViewGroup) toast.getView();
                                 TextView message = (TextView) group.getChildAt(0);
                                 message.setTextSize(36);
                                 toast.setGravity(Gravity.CENTER | Gravity.CENTER, 0, 150);
                                 toast.show();
+
+                                afterClickOnLocation();
                                 break;
                             }
                         }
@@ -223,7 +255,6 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
-
         },
                 new Response.ErrorListener() {
                     @Override
