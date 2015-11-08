@@ -1,11 +1,13 @@
 package com.example.m1sho.hackath;
 
+import android.content.Intent;
 import android.graphics.AvoidXfermode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +26,7 @@ import com.example.m1sho.hackath.States.Racha;
 import com.example.m1sho.hackath.States.Samegrelo;
 import com.example.m1sho.hackath.States.SamtskheJavaxeti;
 import com.example.m1sho.hackath.States.Shidaqartli;
+import com.example.m1sho.hackath.adapter.Adapter;
 import com.example.m1sho.hackath.models.Models;
 
 import org.json.JSONArray;
@@ -49,10 +52,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         fillRegions();
 
-
-        // when we already know the region
-
+        GPSTracker mGPS = new GPSTracker(this);
+        if (mGPS.canGetLocation) {
+            mGPS.getLocation();
+            String url = getLocationURL(mGPS.latitude, mGPS.getLongitude());
+            getState(url);
+        }
     }
+
 
 
     private void afterClickOnLocation() {
@@ -200,16 +207,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClick(View v) {
-        GPSTracker mGPS = new GPSTracker(this);
-        TextView text = (TextView) findViewById(R.id.textView);
-        if (mGPS.canGetLocation) {
-            mGPS.getLocation();
-            // text.setText("Lat : " + mGPS.getLatitude() + "Lon : " + mGPS.getLongitude());
-            String url = getLocationURL(mGPS.latitude, mGPS.getLongitude());
-            getState(url);
-        } else {
-            text.setText("Unabletofind");
-        }
+
+
+            //TDO
+            Intent intent = new Intent(getApplicationContext(), ListViewActivity.class);
+            intent.putExtra("datas", listViewData);
+            startActivity(intent);
+
     }
 
 

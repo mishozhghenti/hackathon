@@ -1,9 +1,11 @@
 package com.example.m1sho.hackath.models;
 
+import java.io.Serializable;
+
 /**
  * Created by m1sho on 11/8/2015.
  */
-public class Models {
+public class Models implements Serializable {
     private String name,description,image;
 
 

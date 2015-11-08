@@ -9,9 +9,7 @@ public class Imereti {
             "http://cook.boom.ge/uploads_script/products/iai1ryk0ikzmpwx.jpeg"
     };
 
-
     public static  String [] name = {"იმერული ხაჭაპური","ღომი"};
-
 
     public static String  [] details ={"იმერული ხაჭაპური. \nყველი,ცომი.\nიჭმევა ხელით","ცხელი კერძი.\n ყველი შიგნით. იჭმევა დანა-ჩანგლით"
     };

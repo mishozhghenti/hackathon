@@ -1,6 +1,7 @@
 package com.example.m1sho.hackath.adapter;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -19,10 +20,12 @@ import java.util.ArrayList;
 public class Adapter extends BaseAdapter{
     private ArrayList<Models> models;
     private Context context;
+    private LayoutInflater inflater;
 
     public Adapter(Context context, ArrayList<Models> models) {
         this.context = context;
         this.models = models;
+        this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
@@ -46,11 +49,10 @@ public class Adapter extends BaseAdapter{
         Viewholder holder = null;
         Models model = (Models) getItem(position);
         if (convertView == null) {
-            itemView = View.inflate(context, R.layout.activity_list_view, null);
+            itemView = inflater.inflate(R.layout.listitem,null);
 
             ImageView image = (ImageView) itemView.findViewById(R.id.baseimage);
             TextView name = (TextView) itemView.findViewById(R.id.name);
-
 
             holder = new Viewholder();
             holder.image = image;
@@ -62,9 +64,6 @@ public class Adapter extends BaseAdapter{
             itemView = convertView;
             holder = (Viewholder) itemView.getTag();
         }
-
-
-
 
         holder.name.setText(model.getName());
 
@@ -79,6 +78,5 @@ public class Adapter extends BaseAdapter{
     private class Viewholder {
         ImageView image;
         TextView name;
-
     }
 }
