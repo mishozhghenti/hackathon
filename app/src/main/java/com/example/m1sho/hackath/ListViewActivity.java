@@ -1,50 +1,56 @@
 package com.example.m1sho.hackath;
 
-import android.os.Bundle;
+import android.content.Intent;
+import android.graphics.AvoidXfermode;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Adapter;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import com.example.m1sho.hackath.adapter.Adapter;
+import com.example.m1sho.hackath.models.Models;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
-import com.example.m1sho.hackath.States.Samegrelo;
-import com.example.m1sho.hackath.models.Models;
-
 public class ListViewActivity extends AppCompatActivity {
-
-    ArrayList<Models> model = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_view);
 
+        //Adapter newAdapter= new Adapter(this,MainActivity.listViewData);
 
-     /*   for (int i = 0; i < Samegrelo.name.length; i++) {
-            Models newmodel = new Models(Samegrelo.image[i], Samegrelo.name[i], Samegrelo.details[i]);
-            model.add(newmodel);
-        }
+       ArrayList<Models> res= (ArrayList<Models>) getIntent().getExtras().getSerializable("datas");
 
-        ListView listView = (ListView) findViewById(R.id.list_item);
-
-        Adapter adapter = new Adapter(this,model);
-        listView.setAdapter(adapter);*/
+        Adapter newAdapter= new Adapter(this,res);
+        ListView listView= (ListView) findViewById(R.id.listView);
+        listView.setAdapter(newAdapter);
 
 
-//       listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//
-//                Intent intent = new Intent(
-//                        MainActivity.this,
-//                        Detail.class);
-//
-//                intent.putExtra("aa",model.get(position));
-//                startActivity(intent);
-//            }
-//        });
-//
-//
-//    }
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Models model = (Models) parent.getAdapter().getItem(position);
+
+                Intent intent = new Intent(ListViewActivity.this,DetailItemActivity.class);
+                intent.putExtra("model",model);
+                startActivity(intent);
+
+            }
+        });
+
+
+
+
+
+
+
+
     }
 }
