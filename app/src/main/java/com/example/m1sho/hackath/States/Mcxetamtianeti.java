@@ -1,18 +1,18 @@
-package com.example.m1sho.hackath.data;
+package com.example.m1sho.hackath.States;
 
 /**
  * Created by GeoLab on 11/7/2015.
  */
 public class Mcxetamtianeti {
-    public static String[] image = {"https://bunbunlandia.files.wordpress.com/2012/05/08-05-12.jpg",
+    public static String[] image = {"http://www.rogor.ge/up/articles/376_rogor-movamzadot-xinkali.jpg","https://bunbunlandia.files.wordpress.com/2012/05/08-05-12.jpg",
             "http://i021.radikal.ru/1404/d4/b84076e81fcb.jpg",
             "http://www.kulinaria.ge/wp-content/uploads/2014/08/yaurma.jpg",
             "http://attach.forum.ge/post-82-1232356855.jpg",
             "http://www.picz.ge/img/s4/1402/1/0/0691bb1441ad.jpg"};
 
-    public static String[] name = {"ხავიწი","მხლოვანა","ყაურმა","კოტორი","ჭიმური"};
+    public static String[] name = {"ხინკალი","ხავიწი","მხლოვანა","ყაურმა","კოტორი","ჭიმური"};
 
-    public static  String [] details = {"თუშური საჭმელია,  წააგავს ფშავლების ხაჭო-ერბოს, რომელიც დამბალი ხაჭოსგან კეთდება, მაგრამ ისეთი საოცარი სურნელება არ აქვს. გვჭირდება დაბოყრინებული ხაჭო, მარილი, მშრალი ხაჭო.\n" +
+    public static  String [] details = {"ხინკალი — ქართული ცომის გუფთა. შედგება ღორისა და საქონლის (ან ცხვრის) ხორცის ნარევისგან. წარმოადგენს ცომისგან დამზადებულ ერთგვარ ტომარას, რომელშიც მოთავსებულია გატარებული ხორცი. \nმზადდება ხარშვის წესით. იჭმევა ხელით","თუშური საჭმელია,  წააგავს ფშავლების ხაჭო-ერბოს, რომელიც დამბალი ხაჭოსგან კეთდება, მაგრამ ისეთი საოცარი სურნელება არ აქვს. გვჭირდება დაბოყრინებული ხაჭო, მარილი, მშრალი ხაჭო.\n" +
             "იჭმევა ხელით, საუკეთესოდ ითვლება, თუ პირდაპირ ტაფიდან, ცხელს შეჭამთ.",
             "ჭარხლის ფოთლის გულსარით და ყველით გამომცხვარი პური.\n" +
                     "იჭმევა ხელით, ნელ-თბილი.\n",
