@@ -1,4 +1,4 @@
-package com.example.m1sho.hackath.data;
+package com.example.m1sho.hackath.States;
 
 /**
  * Created by GeoLab on 11/7/2015.
@@ -13,7 +13,7 @@ public class Guria {
     public static  String [] name = {"გურული ღვეზელი","გურული იაფოფხა","ჯანჯუხა"};
 
 
-    public static String  [] detail ={" ნახევარმთვარის ფორმის ხაჭაპური, რომელშიც წინასწარ მოხარშული და შუაზე გაჭრილი კვერცხი დევს",
+    public static String  [] details ={" ნახევარმთვარის ფორმის ხაჭაპური, რომელშიც წინასწარ მოხარშული და შუაზე გაჭრილი კვერცხი დევს",
     "სოის ფქვილის, დაფქვილი ნიგვზისა და გოგლიმოგლის გამომცხვარი მასაა.",
     "თხილის გულსართიანი ჩურჩხელა"};
 

@@ -1,9 +1,9 @@
-package com.example.m1sho.hackath.data;
+package com.example.m1sho.hackath.States;
 
 /**
  * Created by GeoLab on 11/7/2015.
  */
-public class samegrelo {
+public class Shidaqartli {
     public  static  String [] image = {"http://server1.intermedia.ge/pictures/medium/287/287239.jpg?/sigiJemde-miyvars.jpg",
             "http://a.pix.ge:81/a/m9zm9.jpg",
             "http://shkhara.ucoz.com/_ph/1/688090533.jpg",

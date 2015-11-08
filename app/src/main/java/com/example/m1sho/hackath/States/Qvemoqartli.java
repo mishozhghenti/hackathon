@@ -1,4 +1,4 @@
-package com.example.m1sho.hackath.data;
+package com.example.m1sho.hackath.States;
 
 /**
  * Created by GeoLab on 11/7/2015.
