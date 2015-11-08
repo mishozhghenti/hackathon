@@ -3,7 +3,8 @@ package com.example.m1sho.hackath.States;
 /**
  * Created by GeoLab on 11/7/2015.
  */
-public class Adjara {
+public class
+        Adjara {
     public static String [] image = {"https://ratatuime.files.wordpress.com/2012/04/dsc0048-copy.jpg?w=600",
     "http://www.24saati.ge/uploads/photo/653x367/2014-03/33070.jpg",
     "http://s02.radikal.ru/i175/0912/54/c1379095f7cb.jpg",
