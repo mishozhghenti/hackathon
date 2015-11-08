@@ -1,6 +1,5 @@
 package com.example.m1sho.hackath;
 
-import android.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -14,6 +13,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.m1sho.hackath.States.Samegrelo;
 import com.example.m1sho.hackath.models.Models;
 
 import org.json.JSONArray;
@@ -37,7 +37,22 @@ public class MainActivity extends AppCompatActivity {
         fillRegions();
         HashMap<String, ArrayList<Models>> hashFoods = new HashMap<>();
 
+
     }
+
+    private void getSamegrelo( HashMap<String, ArrayList<Models>> hashFoods){
+        ArrayList<Models> foodList=new ArrayList<>();
+        for (int i = 0; i < Samegrelo.name.length; i++) {
+            Models newFood=new Models(Samegrelo.name[i],Samegrelo.details[i],Samegrelo.image[i]);
+            foodList.add(newFood);
+        }
+        hashFoods.put("Samegrelo-Upper Svaneti",foodList);
+    }
+
+
+
+
+
 
     private void fillRegions() {
         states = new ArrayList<>();

@@ -3,11 +3,14 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ListView
+
+
+<ListView
     android:id="@+id/list_item"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     </ListView>
+
 
 </LinearLayout>
